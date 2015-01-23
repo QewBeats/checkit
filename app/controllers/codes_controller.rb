@@ -10,10 +10,14 @@ class CodesController < ApplicationController
   end
 
   def authenticate 
-    unless Code.find_by :code => params["code"]
-      render json: JSONResponse.create("Invalid Code", "The code you entered is not valid. Please report to the manufacturer.")
-    else
+    response = Code.genuine params["code"]
+
+    if response == 'used'
+      render json: JSONResponse.create("Code used", "This product code has already been used.")
+    elsif response == 'unused'
       render json: JSONResponse.create("Code valid", "The product you have bought is genuine.")
+    else
+      render json: JSONResponse.create("Invalid Code", "The code you entered is not valid. Please report to the manufacturer.")
     end
   end
 

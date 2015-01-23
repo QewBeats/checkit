@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150122193819) do
+ActiveRecord::Schema.define(version: 20150123001529) do
 
   create_table "codes", force: true do |t|
     t.string   "code"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "status",     limit: 255, default: 1
   end
 
   create_table "tokens", force: true do |t|
