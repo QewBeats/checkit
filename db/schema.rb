@@ -11,13 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150123001529) do
+ActiveRecord::Schema.define(version: 20150123130736) do
+
+  create_table "admins", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "codes", force: true do |t|
     t.string   "code"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "status",     limit: 255, default: 1
+    t.string   "status",     default: "1"
   end
 
   create_table "tokens", force: true do |t|
