@@ -23,11 +23,10 @@ class CodesController < ApplicationController
   end
 
   def generate
-    redirect_to admin_root_path
+    @codes = Code.generate(params[:code].to_i)
   end
 
   def new
-    @code = Code.new
   end
 
   private

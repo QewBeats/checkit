@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'codes/authenticate'
 
   get 'codes/new', as: :admin_root
-  get 'codes/generate'
+  post 'codes/generate'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

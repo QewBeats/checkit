@@ -1,4 +1,11 @@
 <%= link_to "Logout", destroy_admin_session_path, method: :delete %>
 <br>
+<%= link_to "back", admin_root_path %>
+<br>
 <h1>Codes#generate</h1>
-<p>Find me in app/views/codes/generate.html.erb</p>
+
+<ol>
+<% @codes.each do |code| %>
+  <li><%= code.code %></li>
+<% end %>
+</ol>

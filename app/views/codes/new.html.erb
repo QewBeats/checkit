@@ -1,3 +1,9 @@
 <%= link_to "Logout", destroy_admin_session_path, method: :delete %>
 
 <h1>Generate new batch of codes</h1>
+
+<%= form_tag codes_generate_path do %>
+  
+  <p>Please enter the number of codes to generate: <%= number_field_tag :code %></p>
+  <p><%= submit_tag "Generate" %></p>
+<% end %>

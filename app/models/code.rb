@@ -28,6 +28,9 @@ class Code < ActiveRecord::Base
   end
 
   def self.generate number
-    (1..number).each { |i| Code.create!(:code => rand.to_s[2...14]) }
+    code_listings = []
+    (1..number).each { |i| code_listings << Code.create(:code => rand.to_s[2...14]) }
+
+    code_listings
   end
 end
