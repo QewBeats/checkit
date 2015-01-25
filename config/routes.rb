@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :admins
+  
+  root to: redirect("/admins/sign_in")
+
   get 'codes/authenticate'
 
+  get 'codes/new', as: :admin_root
   get 'codes/generate'
 
   # The priority is based upon order of creation: first created -> highest priority.

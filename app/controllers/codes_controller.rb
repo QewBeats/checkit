@@ -1,7 +1,8 @@
-require "#{Rails.root}/app/controllers/concerns/json_generate"
+#require "#{Rails.root}/app/controllers/concerns/json_generate"
 
 class CodesController < ApplicationController
-  before_action :require_token
+  before_action :require_token, only: [:authenticate]
+  before_action :authenticate_admin!, except: [:authenticate]
 
   def require_token
     unless Token.exists? params["token"]
@@ -22,5 +23,15 @@ class CodesController < ApplicationController
   end
 
   def generate
+    redirect_to admin_root_path
   end
+
+  def new
+    @code = Code.new
+  end
+
+  private
+    def code_params
+      params.require(:code).permit(:code)
+    end
 end

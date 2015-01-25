@@ -24,4 +24,7 @@ class Code < ActiveRecord::Base
       return nil
     end
   end
+
+  def self.generate number
+  end
 end

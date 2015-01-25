@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'realrand'
+
 gem 'devise'
 gem 'cancancan'
 
