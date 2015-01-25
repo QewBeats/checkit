@@ -1,4 +1,6 @@
 class Code < ActiveRecord::Base
+  validates :code, presence: true, uniqueness: true
+
   enum status: %w(used unused)
 
   def used?
@@ -26,5 +28,6 @@ class Code < ActiveRecord::Base
   end
 
   def self.generate number
+    (1..number).each { |i| Code.create!(:code => rand.to_s[2...14]) }
   end
 end
