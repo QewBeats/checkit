@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150125125327) do
+ActiveRecord::Schema.define(version: 20150127063715) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -36,6 +36,19 @@ ActiveRecord::Schema.define(version: 20150125125327) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "status",     limit: 255, default: 1
+    t.integer  "product_id"
+  end
+
+  add_index "codes", ["product_id"], name: "index_codes_on_product_id"
+
+  create_table "products", force: true do |t|
+    t.string   "name"
+    t.string   "manufacturer"
+    t.string   "distributer"
+    t.date     "expiry_date"
+    t.date     "manufacture_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "tokens", force: true do |t|
