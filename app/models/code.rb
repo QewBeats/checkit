@@ -1,4 +1,5 @@
 class Code < ActiveRecord::Base
+  belongs_to :product
   validates :code, presence: true, uniqueness: true
 
   enum status: %w(used unused)

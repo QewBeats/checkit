@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :products
+
   devise_for :admins
   
   root to: redirect("/admins/sign_in")

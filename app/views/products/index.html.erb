@@ -1,0 +1,37 @@
+<h1>Products</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Manufacturer</th>
+    <th>Distributor</th>
+    <th>Manufacture Date</th>
+    <th>Expiry Date</th>
+  </tr>
+
+  <% if !Product.empty? %>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.manufacturer %></td>
+        <td><%= product.distributor %></td>
+        <td><%= product.manufacture_date %></td>
+        <td><%= product.expiry_date %></td>
+      </tr>
+    <% end %>
+  <% else %>
+    <%= form_for :product do |f| %>
+      <tr>
+        <td><%= f.text_field :name %></td>
+        <td><%= f.text_field :manufacturer %></td>
+        <td><%= f.text_field :distributor %></td>
+        <td><%= f.date_field :manufacture_date %></td>
+        <td><%= f.date_field :expiry_date %></td>
+      </tr>
+      <tr>
+        <td colspan='4'></td>
+        <td><%= f.submit "Add Product" %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
