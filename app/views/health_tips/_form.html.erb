@@ -1,0 +1,25 @@
+<%= form_for(@health_tip) do |f| %>
+  <% if @health_tip.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@health_tip.errors.count, "error") %> prohibited this health_tip from being saved:</h2>
+
+      <ul>
+      <% @health_tip.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :category %><br>
+    <%= f.text_field :category %>
+  </div>
+  <div class="field">
+    <%= f.label :tip %><br>
+    <%= f.text_field :tip %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

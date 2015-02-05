@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @health_tip.category %>
+</p>
+
+<p>
+  <strong>Tip:</strong>
+  <%= @health_tip.tip %>
+</p>
+
+<%= link_to 'Edit', edit_health_tip_path(@health_tip) %> |
+<%= link_to 'Back', health_tips_path %>

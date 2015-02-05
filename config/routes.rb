@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :health_tips
+
   resources :products
 
   devise_for :admins
