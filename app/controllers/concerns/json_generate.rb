@@ -1,6 +1,7 @@
 class JSONResponse
-  def self.create title, msg
-    { 
+  def self.create(status, title, msg)
+    {
+      "status" => status,
       "title" => title, 
       "message" => msg 
     }
